@@ -1,2 +1,2 @@
 # Projeto Biblioteca Digital
-![entrega1](docs/images/entrega1.png)
+![Quadro](docs/images/entrega1.jfif)
