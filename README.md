@@ -10,7 +10,9 @@ O objetivo principal é criar uma plataforma online onde os usuários possam ace
     3 - CANVA
 # Quadro Biblioteca Digital 🧠🧠
   ![Quadro](docs/images/entrega1.jfif)
-  
+# Protótipo projetado 🚀
+![image](https://github.com/user-attachments/assets/607bcdad-2f57-423c-b05d-d8e7765a0b13)
+
 # Painel do Jira
 
 
