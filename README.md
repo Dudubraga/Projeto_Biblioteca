@@ -15,6 +15,7 @@ O objetivo principal é criar uma plataforma online onde os usuários possam ace
         LINK para o protótipo: 
 
 # Painel do Jira
+![image](https://github.com/user-attachments/assets/c396c826-4077-47d1-8f8b-235ba4927459)
 
 
 # Screencast
