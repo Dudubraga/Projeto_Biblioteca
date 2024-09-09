@@ -11,7 +11,8 @@ O objetivo principal é criar uma plataforma online onde os usuários possam ace
 # Quadro Biblioteca Digital 🧠🧠
 ![image](https://github.com/user-attachments/assets/e25cbdbb-7db6-4d93-9728-775a98e47fff)
 # Protótipo projetado 🚀
-![image](https://github.com/user-attachments/assets/96522546-680f-44b2-bd3c-813394f739cf)
+![image](docs/images/Design_Figma.png)
+![image](docs/images/Prototipo_Figma.png)
         LINK para o protótipo: 
 
 # Painel do Jira
