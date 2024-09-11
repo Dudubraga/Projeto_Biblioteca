@@ -23,10 +23,10 @@ O objetivo principal é criar uma plataforma online onde os usuários possam ace
 [Screencast](https://www.youtube.com/watch?v=lTM1rb4GnJ8)
 
 # Integrantes
-    1 - Eduardo Braga
-    2 - Henrique Franca
-    3 - Isabela Medeiros
-    4 - Júlia Vilar
-    5 - Júlia Vilela
-    6 - Pedro Marques
-    7 - Rafael Angelim
+    - Eduardo Braga
+    - Henrique Franca
+    - Isabela Medeiros
+    - Júlia Vilar
+    - Júlia Vilela
+    - Pedro Marques
+    - Rafael Angelim
