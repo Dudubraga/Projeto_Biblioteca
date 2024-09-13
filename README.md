@@ -12,7 +12,7 @@ O objetivo principal é criar uma plataforma online onde os usuários possam ace
 ![image](https://github.com/user-attachments/assets/e25cbdbb-7db6-4d93-9728-775a98e47fff)
 # Protótipo projetado 🚀
 ![image](docs/images/Design_Figma.png)
-![image](docs/images/Prototipo_Figma.png)
+
         LINK para o protótipo: 
 
 # Painel do Jira
