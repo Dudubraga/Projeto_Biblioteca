@@ -5,26 +5,30 @@
     <div class="card text-dark bg-light mb-3" style="max-width: 20rem;">
         <div style="font-size: 150%; margin-bottom: 10px; text-align: center;">Cadastre-se</div>
         <div class="card-body">
-            <form>  
+            <form> 
                 <div class="mb-3">
-                    <input class="form-control form-control-sm" type="text" placeholder="Nome" required>
+                    Nome<input class="form-control form-control-sm" type="text" placeholder="Nome" required>
                 </div>
                 <div class="mb-3">
-                    <input class="form-control form-control-sm" type="date" placeholder="Data de Nascimento" required>
+                    Nascimento<input class="form-control form-control-sm" type="date" placeholder="Data de Nascimento" required>
+                </div>
+            
+                <div class="mb-3">
+                    Email<input class="form-control form-control-sm" type="email" placeholder="Email" required>
                 </div>
                 <div class="mb-3">
-                    <input class="form-control form-control-sm" type="email" placeholder="Email" required>
+                    Senha<input class="form-control form-control-sm" type="password" placeholder="Senha" required>
                 </div>
                 <div class="mb-3">
-                    <input class="form-control form-control-sm" type="password" placeholder="Senha" required>
-                </div>
-                <div class="mb-3">
-                    <input class="form-control form-control-sm" type="password" placeholder="Confirmar Senha" required>
+                    Confirmar Senha<input class="form-control form-control-sm" type="password" placeholder="Confirmar Senha" required>
                 </div>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Criar conta</button>
                 </div>
             </form>
+        </div>
+        <div class="text-center">
+            <h1 style="font-size: 15px;"><a href="{% url 'aba_login' %}">Já possui uma conta?</a></h1>
         </div>
     </div>
 </div>
