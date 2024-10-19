@@ -1,22 +1,32 @@
 {% extends 'biblioteca/base.html' %}
 {% block conteudo %}
 
-<div style="align-self: center;  box-align: center; " class="container">
-    <div class="card text-dark bg-light mb-3;" style="max-width: 18rem; align-items: center; position: relative; top: 100px; left: 540px;">
-        <div style="font-size: 150%;">Cadastre-se</div>
+<div class="container" style="height: 100vh; display: flex; justify-content: center; align-items: center;">
+    <div class="card text-dark bg-light mb-3" style="max-width: 20rem;">
+        <div style="font-size: 150%; margin-bottom: 10px; text-align: center;">Cadastre-se</div>
         <div class="card-body">
-            <div style="margin-bottom: 10px;" class="container">
-                Nome<input style="margin-bottom: 10px;" class="form-control-sm" type="text">
-                Data de Nascimento<input style="margin-right: 100px; margin-bottom: 10px;" class="form-control-sm" type="date">
-                Email<input style="margin-bottom: 10px;" class="form-control-sm" type="email">
-                Senha<input style="margin-bottom: 10px;" class="form-control-sm" type="password">
-                Confirmar Senha<input style="margin-bottom: 10px;" class="form-control-sm" type="password">
-                <div style="text-align: center;" class="form-control-sm" class="container">
-                    <button>Enviar</button>
+            <form>  
+                <div class="mb-3">
+                    <input class="form-control form-control-sm" type="text" placeholder="Nome" required>
                 </div>
-            </div>
+                <div class="mb-3">
+                    <input class="form-control form-control-sm" type="date" placeholder="Data de Nascimento" required>
+                </div>
+                <div class="mb-3">
+                    <input class="form-control form-control-sm" type="email" placeholder="Email" required>
+                </div>
+                <div class="mb-3">
+                    <input class="form-control form-control-sm" type="password" placeholder="Senha" required>
+                </div>
+                <div class="mb-3">
+                    <input class="form-control form-control-sm" type="password" placeholder="Confirmar Senha" required>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
-    
+
 {% endblock %}
