@@ -5,22 +5,19 @@
     <div class="card text-dark bg-light mb-3" style="max-width: 20rem;">
         <div style="font-size: 150%; margin-bottom: 10px; text-align: center;">Cadastre-se</div>
         <div class="card-body">
-            <form> 
+            <form action="{% url 'listagem_usuarios' %}" method="post"> 
+                {% csrf_token %}
                 <div class="mb-3">
-                    Nome<input class="form-control form-control-sm" type="text" placeholder="Nome" required>
+                    Nome<input name="nome" class="form-control form-control-sm" type="text" placeholder="Nome" required>
                 </div>
                 <div class="mb-3">
-                    Nascimento<input class="form-control form-control-sm" type="date" placeholder="Data de Nascimento" required>
-                </div>
-            
-                <div class="mb-3">
-                    Email<input class="form-control form-control-sm" type="email" placeholder="Email" required>
+                    Nascimento<input name="nascimento" class="form-control form-control-sm" type="date" placeholder="Data de Nascimento" required>
                 </div>
                 <div class="mb-3">
-                    Senha<input class="form-control form-control-sm" type="password" placeholder="Senha" required>
+                    Email<input name="email" class="form-control form-control-sm" type="email" placeholder="Email" required>
                 </div>
                 <div class="mb-3">
-                    Confirmar Senha<input class="form-control form-control-sm" type="password" placeholder="Confirmar Senha" required>
+                    Senha<input name="senha" class="form-control form-control-sm" type="password" placeholder="Senha" required>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary btn-sm">Criar conta</button>
