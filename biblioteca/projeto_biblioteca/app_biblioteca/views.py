@@ -5,10 +5,10 @@ def home(request):
     return render(request,'biblioteca/home.html')
 
 def cadastro(request):
-    return render(request,'biblioteca/cadastro.html')
+    return render(request,'usuarios/cadastro.html')
 
 def login(request):
-    return render(request, 'biblioteca/login.html')
+    return render(request, 'usuarios/login.html')
 
 def usuarios(request):
     #salvar os dados da tela para o banco de dados
@@ -19,12 +19,12 @@ def usuarios(request):
     novo_usuario.email = request.POST.get('email')
     novo_usuario.senha = request.POST.get('senha')
     novo_usuario.save()
-
+    
 
     usuarios = {
         'usuarios': Usuario.objects.all()
     }
 
-    render(request,'biblioteca/usuarios.html', usuarios)
+    render(request,'usuarios/usuarios.html', usuarios)
     
-    return render(request, 'biblioteca/login.html')
+    return render(request, 'usuarios/login.html')
