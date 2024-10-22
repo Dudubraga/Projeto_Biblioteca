@@ -1,30 +1,29 @@
-from django.shortcuts import *
+from django.shortcuts import render, redirect
 from .models import Usuario
 
 def home(request):
-    return render(request,'biblioteca/home.html')
+    return render(request, 'biblioteca/home.html')
 
 def cadastro(request):
-    return render(request,'usuarios/cadastro.html')
+    if request.method == 'POST':
+        Usuario.objects.create(
+            nome=request.POST.get('nome'),
+            nascimento=request.POST.get('nascimento'),
+            email=request.POST.get('email'),
+            senha=request.POST.get('senha')
+        )
+        return redirect('aba_login')
+    return render(request, 'usuarios/cadastro.html')
 
 def login(request):
-    return render(request, 'usuarios/login.html')
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
 
-def usuarios(request):
-    #salvar os dados da tela para o banco de dados
+        usuario = Usuario.objects.filter(email=email).first()
+        if usuario and usuario.senha == senha:
+            return redirect('home')
+        else:
+            return render(request ,'usuarios/login.html', {'error': 'Email ou senha incorretos.'})
 
-    novo_usuario = Usuario()
-    novo_usuario.nome = request.POST.get('nome')
-    novo_usuario.nascimento = request.POST.get('nascimento')
-    novo_usuario.email = request.POST.get('email')
-    novo_usuario.senha = request.POST.get('senha')
-    novo_usuario.save()
-    
-
-    usuarios = {
-        'usuarios': Usuario.objects.all()
-    }
-
-    render(request,'usuarios/usuarios.html', usuarios)
-    
     return render(request, 'usuarios/login.html')

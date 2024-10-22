@@ -5,12 +5,20 @@
     <div class="card text-dark bg-light mb-3" style="max-width: 20rem;">
         <div style="font-size: 150%; margin-bottom: 10px; text-align: center;">Login</div>
         <div class="card-body">
-            <form> 
+            
+            {% if error %}
+                <div class="alert alert-danger">
+                    {{ error }}
+                </div>
+            {% endif %}
+
+            <form method="POST">
+                {% csrf_token %}
                 <div class="mb-3">
-                    Email<input class="form-control form-control-sm" type="email" placeholder="Email" required>
+                    Email<input name="email" class="form-control form-control-sm" type="email" placeholder="Email" required>
                 </div>
                 <div class="mb-3">
-                    Senha<input class="form-control form-control-sm" type="password" placeholder="Senha" required>
+                    Senha<input name="senha" class="form-control form-control-sm" type="password" placeholder="Senha" required>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary btn-sm">Entrar</button>
@@ -18,11 +26,9 @@
             </form>
         </div>
         <div class="text-center">
-            <h1 style="font-size: 15px;"><a  href="{% url 'aba_cadastro' %}">Não tem uma conta? Cadastre-se</a></h1>
+            <h1 style="font-size: 15px;"><a href="{% url 'aba_cadastro' %}">Não tem uma conta? Cadastre-se</a></h1>
         </div>
-
     </div>
 </div>
 
 {% endblock %}
- 
