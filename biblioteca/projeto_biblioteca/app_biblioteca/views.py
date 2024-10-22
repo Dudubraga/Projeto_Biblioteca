@@ -36,3 +36,6 @@ def login(request):
 
 def usuario(request):
     return render(request,'usuarios/homeusuario.html')
+
+def perfil(request):
+    return render(request, 'usuarios/perfil.html')
