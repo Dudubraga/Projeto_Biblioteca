@@ -6,12 +6,17 @@ def home(request):
 
 def cadastro(request):
     if request.method == 'POST':
-        Usuario.objects.create(
-            nome=request.POST.get('nome'),
-            nascimento=request.POST.get('nascimento'),
-            email=request.POST.get('email'),
-            senha=request.POST.get('senha')
-        )
+
+        email=request.POST.get('email')
+        usuario = Usuario.objects.filter(email=email).first()
+        if usuario:
+            return render(request, 'usuarios/cadastro.html', {'error': 'Email já cadastrado.'})
+        else:
+            Usuario.objects.create(
+                nome=request.POST.get('nome'),
+                nascimento=request.POST.get('nascimento'),
+                senha=request.POST.get('senha')
+            )
         return redirect('aba_login')
     return render(request, 'usuarios/cadastro.html')
 

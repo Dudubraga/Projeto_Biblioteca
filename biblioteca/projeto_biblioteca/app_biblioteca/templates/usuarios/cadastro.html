@@ -5,6 +5,13 @@
     <div class="card text-dark bg-light mb-3" style="max-width: 20rem;">
         <div style="font-size: 150%; margin-bottom: 10px; text-align: center;">Cadastre-se</div>
         <div class="card-body">
+
+            {% if error %}
+                <div class="alert alert-danger">
+                    {{ error }}
+                </div>
+            {% endif %}
+
             <form action="{% url 'aba_cadastro' %}" method="post"> 
                 {% csrf_token %}
                 <div class="mb-3">
