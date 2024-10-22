@@ -27,8 +27,12 @@ def login(request):
 
         usuario = Usuario.objects.filter(email=email).first()
         if usuario and usuario.senha == senha:
-            return redirect('home')
+            print("Login efetuado")
+            return redirect('aba_usuario')
         else:
             return render(request ,'usuarios/login.html', {'error': 'Email ou senha incorretos.'})
 
     return render(request, 'usuarios/login.html')
+
+def usuario(request):
+    return render(request,'usuarios/homeusuario.html')
