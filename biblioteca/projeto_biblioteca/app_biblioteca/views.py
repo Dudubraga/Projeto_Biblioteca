@@ -7,13 +7,15 @@ def home(request):
 def cadastro(request):
     if request.method == 'POST':
 
-        email=request.POST.get('email')
+        email = request.POST.get('email')
         usuario = Usuario.objects.filter(email=email).first()
+
         if usuario:
             return render(request, 'usuarios/cadastro.html', {'error': 'Email já cadastrado.'})
         else:
             Usuario.objects.create(
                 nome=request.POST.get('nome'),
+                email=email,
                 nascimento=request.POST.get('nascimento'),
                 senha=request.POST.get('senha')
             )
