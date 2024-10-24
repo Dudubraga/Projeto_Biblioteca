@@ -20,7 +20,7 @@ O objetivo principal é criar uma plataforma online onde os usuários possam ace
 
 
 # Screencast
-[Screencast](https://www.youtube.com/watch?v=lTM1rb4GnJ8)
+[Screencast](https://youtu.be/3ms2Ft_ExKs?si=zFvxZWloBMVlVpE5)
 
 # Integrantes
     - Eduardo Braga
