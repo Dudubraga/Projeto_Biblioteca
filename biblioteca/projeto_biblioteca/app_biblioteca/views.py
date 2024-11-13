@@ -39,11 +39,13 @@ def login(request):
 
 def usuario(request):
     # pega o ID do usuário da sessão
+    
     usuario_id = request.session.get('usuario_id')
     
     if usuario_id:
+        livros = Livro.objects.all() 
         usuario = Usuario.objects.get(id_usuario=usuario_id)
-        return render(request, 'usuarios/homeusuario.html', {'usuario': usuario})
+        return render(request, 'usuarios/homeusuario.html', {'usuario': usuario, 'livros': livros})
     else:
         # se não tiver logado, redireciona para o login mesmo ele checando antes
         return redirect('aba_login')
@@ -60,3 +62,7 @@ def perfil(request):
 def detalhes_livro(request, livro_id):
     livro = Livro.objects.get(id_livro=livro_id)
     return render(request, 'biblioteca/detalhes_livro.html', {'livro': livro})
+
+def detalhes_livro_usuario(request, livro_id):
+    livro = Livro.objects.get(id_livro=livro_id)
+    return render(request, 'usuarios/detalhes_livro_usuario.html', {'livro': livro})
