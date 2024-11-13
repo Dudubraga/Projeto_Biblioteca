@@ -1,10 +1,18 @@
 from django.shortcuts import render, redirect
 from .models import Usuario, Livro
 
+#parte de usuarios não logados
 def home(request):
     livros = Livro.objects.all()[:3]  #pegando os 3 primeiros livros
     return render(request, 'biblioteca/home.html', {'livros': livros})
 
+def detalhes_livro(request, livro_id):
+    livro = Livro.objects.get(id_livro=livro_id)
+    return render(request, 'biblioteca/detalhes_livro.html', {'livro': livro})
+
+
+
+#login e cadastro
 def cadastro(request):
     if request.method == 'POST':
 
@@ -37,6 +45,9 @@ def login(request):
 
     return render(request, 'usuarios/login.html')
 
+
+
+#parte de usuarios logados
 def usuario(request):
     # pega o ID do usuário da sessão
     
@@ -59,10 +70,9 @@ def perfil(request):
     else:
         return redirect('aba_login')
     
-def detalhes_livro(request, livro_id):
-    livro = Livro.objects.get(id_livro=livro_id)
-    return render(request, 'biblioteca/detalhes_livro.html', {'livro': livro})
 
 def detalhes_livro_usuario(request, livro_id):
+    usuario_id = request.session.get('usuario_id')  
+    usuario = Usuario.objects.get(id_usuario=usuario_id)
     livro = Livro.objects.get(id_livro=livro_id)
-    return render(request, 'usuarios/detalhes_livro_usuario.html', {'livro': livro})
+    return render(request, 'usuarios/detalhes_livro_usuario.html', {'usuario': usuario, 'livro': livro})
