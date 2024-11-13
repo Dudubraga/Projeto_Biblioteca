@@ -6,3 +6,11 @@ class Usuario(models.Model):
     nascimento = models.DateField()
     email = models.EmailField()
     senha = models.TextField(max_length=255)   
+
+class Livro(models.Model):
+    id_livro = models.AutoField(primary_key=True)
+    titulo = models.CharField(max_length=255)
+    autor = models.CharField(max_length=255)
+    descricao = models.TextField()
+    ano_publicacao = models.IntegerField()
+   
