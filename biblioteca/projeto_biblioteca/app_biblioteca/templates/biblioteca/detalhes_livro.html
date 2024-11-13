@@ -1,0 +1,35 @@
+{% extends 'biblioteca/base.html' %}
+{% block conteudo %}
+
+<div class="container mt-5">
+    <div class="card" style="background-color: whitesmoke;">
+        <div class="row g-0">
+            <!--imagem -->
+            <div class="col-md-4 p-4">
+                <img src="{{ livro.imagem_url }}" class="img-fluid rounded" alt="{{ livro.titulo }}" 
+                     style="max-height: 500px; width: auto;">
+            </div>
+            
+            <!-- infos -->
+            <div class="col-md-8">
+                <div class="card-body p-4">
+                    <h2 class="card-title" style="color: black; font-weight: bold;">{{ livro.titulo }}</h2>
+                    <h4 class="card-subtitle mb-3 text-muted">{{ livro.autor }}</h4>
+                    
+                    <div class="mt-4">
+                        <p class="card-text">
+                            <strong>Ano de publicação:</strong> {{ livro.ano_publicacao }}
+                        </p>
+                        
+                        <p class="card-text">
+                            <strong>Descrição:</strong><br>
+                            {{ livro.descricao }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

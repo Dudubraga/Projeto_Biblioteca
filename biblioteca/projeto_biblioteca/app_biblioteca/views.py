@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-from .models import Usuario
+from .models import Usuario, Livro
 
 def home(request):
-    return render(request, 'biblioteca/home.html')
+    livros = Livro.objects.all()[:3]  #pegando os 3 primeiros livros
+    return render(request, 'biblioteca/home.html', {'livros': livros})
 
 def cadastro(request):
     if request.method == 'POST':
@@ -55,3 +56,7 @@ def perfil(request):
         return render(request, 'usuarios/perfil.html', {'usuario': usuario})
     else:
         return redirect('aba_login')
+    
+def detalhes_livro(request, livro_id):
+    livro = Livro.objects.get(id_livro=livro_id)
+    return render(request, 'biblioteca/detalhes_livro.html', {'livro': livro})
