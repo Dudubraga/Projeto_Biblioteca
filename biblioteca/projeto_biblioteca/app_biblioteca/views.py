@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
-from .models import Usuario, Livro
+from django.shortcuts import redirect, get_object_or_404, render
+from django.contrib import messages
+from .models import Livro, Usuario  # Removido BibliotecaUsuario e adicionado Usuario
 
 #parte de usuarios não logados
 def home(request):
@@ -76,3 +77,34 @@ def detalhes_livro_usuario(request, livro_id):
     usuario = Usuario.objects.get(id_usuario=usuario_id)
     livro = Livro.objects.get(id_livro=livro_id)
     return render(request, 'usuarios/detalhes_livro_usuario.html', {'usuario': usuario, 'livro': livro})
+
+
+def adicionar_favorito(request, id_livro):
+    usuario_id = request.session.get('usuario_id')
+    if usuario_id:
+        livro = get_object_or_404(Livro, id_livro=id_livro)
+        usuario = Usuario.objects.get(id_usuario=usuario_id)
+        usuario.favoritos.add(livro)
+        messages.success(request, 'Livro adicionado aos favoritos com sucesso!')
+        return redirect('detalhes_livro_usuario', livro_id=id_livro)
+    return redirect('aba_login')
+
+def adicionar_lido(request, id_livro):
+    usuario_id = request.session.get('usuario_id')
+    if usuario_id:
+        livro = get_object_or_404(Livro, id_livro=id_livro)
+        usuario = Usuario.objects.get(id_usuario=usuario_id)
+        usuario.lidos.add(livro)
+        messages.success(request, 'Livro marcado como lido com sucesso!')
+        return redirect('detalhes_livro_usuario', livro_id=id_livro)
+    return redirect('aba_login')
+
+def adicionar_proxima_leitura(request, id_livro):
+    usuario_id = request.session.get('usuario_id')
+    if usuario_id:
+        livro = get_object_or_404(Livro, id_livro=id_livro)
+        usuario = Usuario.objects.get(id_usuario=usuario_id)
+        usuario.proximas_leituras.add(livro)
+        messages.success(request, 'Livro adicionado à lista de próximas leituras!')
+        return redirect('detalhes_livro_usuario', livro_id=id_livro)
+    return redirect('aba_login')
