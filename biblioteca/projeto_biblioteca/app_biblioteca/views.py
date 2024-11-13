@@ -29,7 +29,7 @@ def login(request):
 
         usuario = Usuario.objects.filter(email=email).first()
         if usuario and usuario.senha == senha:
-            print("Login efetuado")
+            request.session['usuario_id'] = usuario.id_usuario #salva o id do usuario na sessão
             return redirect('aba_usuario')
         else:
             return render(request ,'usuarios/login.html', {'error': 'Email ou senha incorretos.'})
@@ -37,7 +37,21 @@ def login(request):
     return render(request, 'usuarios/login.html')
 
 def usuario(request):
-    return render(request,'usuarios/homeusuario.html')
+    # pega o ID do usuário da sessão
+    usuario_id = request.session.get('usuario_id')
+    
+    if usuario_id:
+        usuario = Usuario.objects.get(id_usuario=usuario_id)
+        return render(request, 'usuarios/homeusuario.html', {'usuario': usuario})
+    else:
+        # se não tiver logado, redireciona para o login mesmo ele checando antes
+        return redirect('aba_login')
 
 def perfil(request):
-    return render(request, 'usuarios/perfil.html')
+    usuario_id = request.session.get('usuario_id')
+    
+    if usuario_id:
+        usuario = Usuario.objects.get(id_usuario=usuario_id)
+        return render(request, 'usuarios/perfil.html', {'usuario': usuario})
+    else:
+        return redirect('aba_login')
