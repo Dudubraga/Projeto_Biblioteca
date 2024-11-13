@@ -108,3 +108,14 @@ def adicionar_proxima_leitura(request, id_livro):
         messages.success(request, 'Livro adicionado à lista de próximas leituras!')
         return redirect('detalhes_livro_usuario', livro_id=id_livro)
     return redirect('aba_login')
+
+
+#aba para favoritos do usuario
+"""
+"""
+def favoritos(request):
+    usuario_id = request.session.get('usuario_id')
+    usuario = Usuario.objects.get(id_usuario=usuario_id)
+    livros_fav = usuario.favoritos.all()
+    return render(request,'usuarios/favoritos.html',{'usuario': usuario,'livros_fav' : livros_fav})
+    
