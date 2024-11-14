@@ -28,5 +28,32 @@
         
     </div>
 </div>
+<style>
+    .image{
+        display: flex;
+        gap: 50px;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="card" style="background-color: whitesmoke;">
+        <div class="col-md-4 p-4">
+            <h1 style="color: black;text-shadow: 1px 1px 1px rgb(0, 0, 0), 0 0 1em rgb(0, 0, 0), 0 0 0.2em rgb(253, 253, 253);">
+                Proximas leituras!</h1>
+                <br><br>
+                <ul>
+                    <div class="image">
+
+                        {% for livro in livros_prox_leitura %}
+                        <img src="{{ livro.imagem_url }}" class="img-fluid rounded" alt="{{ livro.titulo }}"
+                        style="max-height: 300px; width: auto;">
+                        {% endfor %}
+                    </div>
+                    </div>
+                </ul>
+        </div>
+        
+    </div>
+</div>
 
 {% endblock %}

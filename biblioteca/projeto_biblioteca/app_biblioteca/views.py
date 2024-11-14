@@ -119,8 +119,9 @@ def favoritos(request):
     livros_fav = usuario.favoritos.all()
     return render(request,'usuarios/favoritos.html',{'usuario': usuario,'livros_fav' : livros_fav})
     
-def lidos(request):
+def lidos_e_proxLeitura(request):
     usuario_id = request.session.get('usuario_id')
     usuario = Usuario.objects.get(id_usuario=usuario_id)
     livros_lidos = usuario.lidos.all()
-    return render(request,'usuarios/lidos.html',{'usuario': usuario,'livros_lidos' : livros_lidos})
+    livros_prox_leitura = usuario.proximas_leituras.all()
+    return render(request,'usuarios/lidos_prox_leituras.html',{'usuario': usuario,'livros_lidos' : livros_lidos, 'livros_prox_leitura' : livros_prox_leitura})
