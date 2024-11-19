@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, get_object_or_404, render
 from django.contrib import messages
-from .models import Livro, Usuario  # Removido BibliotecaUsuario e adicionado Usuario
+from .models import Livro, Usuario, Comentario # Removido BibliotecaUsuario e adicionado Usuario
 
 #parte de usuarios não logados
 def home(request):
@@ -9,7 +9,8 @@ def home(request):
 
 def detalhes_livro(request, livro_id):
     livro = Livro.objects.get(id_livro=livro_id)
-    return render(request, 'biblioteca/detalhes_livro.html', {'livro': livro})
+    comentarios = Comentario.objects.filter(livro=livro_id)
+    return render(request, 'biblioteca/detalhes_livro.html', {'livro': livro, 'comentarios': comentarios})
 
 
 
@@ -76,7 +77,9 @@ def detalhes_livro_usuario(request, livro_id):
     usuario_id = request.session.get('usuario_id')  
     usuario = Usuario.objects.get(id_usuario=usuario_id)
     livro = Livro.objects.get(id_livro=livro_id)
-    return render(request, 'usuarios/detalhes_livro_usuario.html', {'usuario': usuario, 'livro': livro})
+    #comentarios = Comentario.objects.get(livro = livro_id)
+    comentarios = Comentario.objects.filter(livro=livro_id)
+    return render(request, 'usuarios/detalhes_livro_usuario.html', {'usuario': usuario, 'livro': livro, 'comentarios':comentarios})
 
 
 def adicionar_favorito(request, id_livro):

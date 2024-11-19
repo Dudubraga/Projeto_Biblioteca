@@ -18,4 +18,9 @@ class Livro(models.Model):
     ano_publicacao = models.IntegerField()
     imagem_url = models.URLField(max_length=255, null=True, blank=True)
 
+class Comentario(models.Model):
+    id_comentario = models.AutoField(primary_key=True)
+    usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+    livro = models.ForeignKey('Livro', on_delete=models.CASCADE)
+    texto = models.TextField()
    
