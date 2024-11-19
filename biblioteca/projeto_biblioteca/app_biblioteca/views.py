@@ -128,3 +128,7 @@ def lidos_e_proxLeitura(request):
     livros_lidos = usuario.lidos.all()
     livros_prox_leitura = usuario.proximas_leituras.all()
     return render(request,'usuarios/lidos_prox_leituras.html',{'usuario': usuario,'livros_lidos' : livros_lidos, 'livros_prox_leitura' : livros_prox_leitura})
+
+def comentar(request):
+    #usuario_id = request.session.get('usuario_id')
+    return render(request, 'usuarios/comentar.html')
