@@ -75,47 +75,76 @@ def perfil(request):
 
 def detalhes_livro_usuario(request, livro_id):
     usuario_id = request.session.get('usuario_id')  
+    if not usuario_id:
+        return redirect('aba_login')
+        
     usuario = Usuario.objects.get(id_usuario=usuario_id)
     livro = Livro.objects.get(id_livro=livro_id)
-    #comentarios = Comentario.objects.get(livro = livro_id)
     comentarios = Comentario.objects.filter(livro=livro_id)
-    return render(request, 'usuarios/detalhes_livro_usuario.html', {'usuario': usuario, 'livro': livro, 'comentarios':comentarios})
+    
+
+    livro_favoritado = usuario.favoritos.filter(id_livro=livro_id).exists()
+    livro_lido = usuario.lidos.filter(id_livro=livro_id).exists()
+    livro_proxima_leitura = usuario.proximas_leituras.filter(id_livro=livro_id).exists()
+    
+    context = {
+        'usuario': usuario,
+        'livro': livro,
+        'comentarios': comentarios,
+        'livro_favoritado': livro_favoritado,
+        'livro_lido': livro_lido,
+        'livro_proxima_leitura': livro_proxima_leitura
+    }
+    
+    return render(request, 'usuarios/detalhes_livro_usuario.html', context)
 
 
 def adicionar_favorito(request, id_livro):
     usuario_id = request.session.get('usuario_id')
-    if usuario_id:
-        livro = get_object_or_404(Livro, id_livro=id_livro)
-        usuario = Usuario.objects.get(id_usuario=usuario_id)
+    if not usuario_id:
+        return redirect('aba_login')
+        
+    usuario = Usuario.objects.get(id_usuario=usuario_id)
+    livro = Livro.objects.get(id_livro=id_livro)
+    
+    if usuario.favoritos.filter(id_livro=id_livro).exists():
+        usuario.favoritos.remove(livro)
+    else:
         usuario.favoritos.add(livro)
-        messages.success(request, 'Livro adicionado aos favoritos com sucesso!')
-        return redirect('detalhes_livro_usuario', livro_id=id_livro)
-    return redirect('aba_login')
+    
+    return redirect('detalhes_livro_usuario', livro_id=id_livro)
 
 def adicionar_lido(request, id_livro):
     usuario_id = request.session.get('usuario_id')
-    if usuario_id:
-        livro = get_object_or_404(Livro, id_livro=id_livro)
-        usuario = Usuario.objects.get(id_usuario=usuario_id)
+    if not usuario_id:
+        return redirect('aba_login')
+        
+    usuario = Usuario.objects.get(id_usuario=usuario_id)
+    livro = Livro.objects.get(id_livro=id_livro)
+    
+    if usuario.lidos.filter(id_livro=id_livro).exists():
+        usuario.lidos.remove(livro)
+    else:
         usuario.lidos.add(livro)
-        messages.success(request, 'Livro marcado como lido com sucesso!')
-        return redirect('detalhes_livro_usuario', livro_id=id_livro)
-    return redirect('aba_login')
+    
+    return redirect('detalhes_livro_usuario', livro_id=id_livro)
 
 def adicionar_proxima_leitura(request, id_livro):
     usuario_id = request.session.get('usuario_id')
-    if usuario_id:
-        livro = get_object_or_404(Livro, id_livro=id_livro)
-        usuario = Usuario.objects.get(id_usuario=usuario_id)
+    if not usuario_id:
+        return redirect('aba_login')
+        
+    usuario = Usuario.objects.get(id_usuario=usuario_id)
+    livro = Livro.objects.get(id_livro=id_livro)
+    
+    if usuario.proximas_leituras.filter(id_livro=id_livro).exists():
+        usuario.proximas_leituras.remove(livro)
+    else:
         usuario.proximas_leituras.add(livro)
-        messages.success(request, 'Livro adicionado à lista de próximas leituras!')
-        return redirect('detalhes_livro_usuario', livro_id=id_livro)
-    return redirect('aba_login')
+    
+    return redirect('detalhes_livro_usuario', livro_id=id_livro)
 
 
-#aba para favoritos do usuario
-"""
-"""
 def favoritos(request):
     usuario_id = request.session.get('usuario_id')
     usuario = Usuario.objects.get(id_usuario=usuario_id)
@@ -142,7 +171,6 @@ def comentar(request, id_livro):
                     livro=livro,
                     texto=texto
                 )
-                messages.success(request, 'Comentário adicionado com sucesso!')
                 return redirect('detalhes_livro_usuario', livro_id=id_livro)
         
         return render(request, 'usuarios/comentar.html', {'livro': livro})
