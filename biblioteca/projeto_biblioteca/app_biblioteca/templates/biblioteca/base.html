@@ -42,8 +42,8 @@
                 </ul>
                 
                 <div style="margin-left: 50px; margin-right: 400px;" class="container">
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search">
+                    <form class="d-flex" method="GET" action="{% url 'buscar_livro' %}">
+                        <input class="form-control me-2" type="search" name="titulo" placeholder="Pesquisar..." aria-label="Search">
                         <button style="background-color: black; text-decoration: none;color: whitesmoke; border-color: whitesmoke;" class="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
                 </div>
@@ -93,6 +93,15 @@
             </div>
         </div>
     </nav>
+    {% if messages %}
+        <div class="container mt-3">
+            {% for message in messages %}
+                <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 
     {% block conteudo %}
 

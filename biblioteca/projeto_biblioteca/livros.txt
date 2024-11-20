@@ -1,0 +1,44 @@
+livros = [
+    {
+        'titulo': 'Lógica de Programação Para Iniciantes',
+        'autor': 'Marcos Castilho, Fabiano Silva e Daniel Weingaertner',
+        'descricao': 'No vasto e complexo universo da tecnologia, onde cada clique pode desencadear uma infinidade de reações e cada linha de código pode construir mundos, existe um princípio fundamental que orienta todos os desenvolvedores: a lógica de programação. Neste livro, vamos embarcar em uma jornada através dos fundamentos da lógica, explorando conceitos e práticas que formam a base de todas as linguagens de programação.',
+        'ano_publicacao': 2017,
+        'imagem_url': 'https://i.imgur.com/0DqiCV8.png'
+    },
+    {
+        'titulo': 'Introdução Ao Java',
+        'autor': 'Peter Jandl Junior',
+        'descricao': 'Aprenda os conceitos essenciais de Java de forma simples e prática! Este livro é perfeito para quem está começando na programação e deseja construir uma base sólida em uma das linguagens mais populares do mercado. Com exemplos claros, você estará pronto para criar suas primeiras aplicações. '    
+        'ano_publicacao': 2002,
+        'imagem_url': 'https://imgur.com/NSPKz2r'
+    },
+    {
+        'titulo': 'O Que é Software Livre',
+        'autor': 'Augusto Campos',
+        'descricao': 'Software livre é um programa que permite ao usuário copiar, distribuir, modificar e estudar o programa sem pagar ou pedir permissão ao autor. Para garantir essas liberdades, o software livre permite aos seus usuários o acesso a seu código fonte.'   
+        'ano_publicacao': 2002,
+        'imagem_url': 'https://imgur.com/pwFBObr'
+    },
+    {
+        'titulo': '15 Anos de Software Livre',
+        'autor': 'Richard Stallman',
+        'descricao':' "15 Anos de Software Livre" é um livro escrito por Richard Stallman, fundador da Free Software Foundation e criador da Licença Geral Pública GNU (GPL). Este livro celebra os 15 anos do movimento de software livre, refletindo sobre os desafios e conquistas dessa iniciativa.',
+        'ano_publicacao': 1999,
+        'imagem_url': 'https://i.imgur.com/vIlnqZg.png' 
+    },
+    {
+        'titulo': 'Programação Em C++ Algoritmos E Estruturas De Dados',
+        'autor': ' Pimenta Rodrigues, Pedro Pereira, Manuela Sousa',
+        'descricao': 'Este livro constitui o segundo duma série de três volumes que trata pedagogicamente os tópicos referentes ao desenvolvimento de aplicações em linguagem C++, assumindo que os leitores dominam a linguagem C++ ao nível que foi abordada no primeiro volume. Destina-se a ser usado como manual para uma segunda disciplina de programação, disciplinas de algoritmos e estruturas de dados ou para quem pretenda aprender a programar como autodidacta.'
+        'ano_publicacao': 2000,
+        'imagem_url': 'https://imgur.com/K2yT0nK' 
+    },
+    {
+        'titulo': 'Linux Dictionary',
+        'autor': 'Binh Nguyen',
+        'descricao':'Entenda como funciona o Linux',
+        'ano_publicacao': 1997,
+        'imagem_url': 'https://i.imgur.com/nYWavPR.png' 
+    }
+]

@@ -4,7 +4,7 @@ from .models import Livro, Usuario, Comentario # Removido BibliotecaUsuario e ad
 
 #parte de usuarios não logados
 def home(request):
-    livros = Livro.objects.all()[:3]  #pegando os 3 primeiros livros
+    livros = Livro.objects.all()  #pegando os 3 primeiros livros
     return render(request, 'biblioteca/home.html', {'livros': livros})
 
 def detalhes_livro(request, livro_id):
@@ -175,3 +175,34 @@ def comentar(request, id_livro):
         
         return render(request, 'usuarios/comentar.html', {'livro': livro})
     return redirect('aba_login')
+
+def buscar_livro(request):
+    titulo = request.GET.get('titulo')
+    if titulo:
+        try:
+            livro = Livro.objects.get(titulo__icontains=titulo)
+            return redirect('detalhes_livro', livro_id=livro.id_livro)
+                
+        except Livro.DoesNotExist:
+            messages.error(request, 'Livro não encontrado.')
+            return redirect('aba_usuario')
+          
+            
+    return redirect('home')
+
+def buscar_livro_usuario(request):
+    usuario_id = request.session.get('usuario_id')
+    if not usuario_id:
+        return redirect('aba_login')
+        
+    titulo = request.GET.get('titulo')
+    if titulo:
+        try:
+            livro = Livro.objects.get(titulo__icontains=titulo)
+            return redirect('detalhes_livro_usuario', livro_id=livro.id_livro)
+                
+        except Livro.DoesNotExist:
+            messages.error(request, 'Livro não encontrado.')
+            return redirect('aba_usuario')
+            
+    return redirect('aba_usuario')
