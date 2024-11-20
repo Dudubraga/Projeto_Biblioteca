@@ -129,6 +129,21 @@ def lidos_e_proxLeitura(request):
     livros_prox_leitura = usuario.proximas_leituras.all()
     return render(request,'usuarios/lidos_prox_leituras.html',{'usuario': usuario,'livros_lidos' : livros_lidos, 'livros_prox_leitura' : livros_prox_leitura})
 
-def comentar(request):
-    #usuario_id = request.session.get('usuario_id')
-    return render(request, 'usuarios/comentar.html')
+def comentar(request, id_livro):
+    livro = get_object_or_404(Livro, id_livro=id_livro)
+    usuario_id = request.session.get('usuario_id')
+    if usuario_id:
+        if request.method == 'POST':
+            texto = request.POST.get('comentario')
+            if texto:
+                usuario = Usuario.objects.get(id_usuario=usuario_id)
+                Comentario.objects.create(
+                    usuario=usuario,
+                    livro=livro,
+                    texto=texto
+                )
+                messages.success(request, 'Comentário adicionado com sucesso!')
+                return redirect('detalhes_livro_usuario', livro_id=id_livro)
+        
+        return render(request, 'usuarios/comentar.html', {'livro': livro})
+    return redirect('aba_login')

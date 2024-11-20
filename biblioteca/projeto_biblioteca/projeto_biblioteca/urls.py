@@ -14,6 +14,6 @@ urlpatterns = [
     path('livro/<int:id_livro>/adicionar-proxima-leitura/', views.adicionar_proxima_leitura, name='adicionar_proxima_leitura'),
     path('favoritos/', views.favoritos, name='favoritos'),
     path('lidos_e_proxLeitura/', views.lidos_e_proxLeitura, name='lidos_e_proxLeitura'),
-    path('livros/comentario', views.comentar, name='comentar'),
+    path('livros/comentario/<int:id_livro>/', views.comentar, name='comentar'),
     
     ]
