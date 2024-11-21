@@ -185,7 +185,7 @@ def buscar_livro(request):
                 
         except Livro.DoesNotExist:
             messages.error(request, 'Livro não encontrado.')
-            return redirect('aba_usuario')
+            return redirect('home')
           
             
     return redirect('home')
