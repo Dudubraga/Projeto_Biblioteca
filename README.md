@@ -37,7 +37,7 @@ Sprint 3
 ![image](https://github.com/user-attachments/assets/9b7153f2-1ed5-4720-b154-3f639d5b1a44)
 
 # Screencast
-[Screencast](https://youtu.be/3ms2Ft_ExKs?si=zFvxZWloBMVlVpE5)
+[Screencast](https://www.canva.com/design/DAGXiVT84-k/16P0iO46PT0neBBhB4xnlw/edit?utm_content=DAGXiVT84-k&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 # Integrantes
     - Eduardo Braga
