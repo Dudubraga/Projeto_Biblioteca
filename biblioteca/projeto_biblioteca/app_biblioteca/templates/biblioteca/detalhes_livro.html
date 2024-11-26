@@ -40,6 +40,15 @@
                         </a>
                     </div>
                     
+                    {% if livro.link_livro %}
+                    <a href="{{ livro.link_livro }}" 
+                       class="btn btn-warning" 
+                       target="_blank" rel="noopener noreferrer">
+                       Iniciar Leitura
+                    </a>
+                    {% endif %}
+
+
                     <div class="mt-4">
                         <p class="card-text">
                             <strong>Ano de publicação:</strong> {{ livro.ano_publicacao }}

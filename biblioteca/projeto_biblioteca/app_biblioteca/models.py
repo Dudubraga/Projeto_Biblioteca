@@ -17,6 +17,7 @@ class Livro(models.Model):
     descricao = models.TextField()
     ano_publicacao = models.IntegerField()
     imagem_url = models.URLField(max_length=255, null=True, blank=True)
+    link_livro = models.URLField(max_length=255, null=True, blank=True)
 
 class Comentario(models.Model):
     id_comentario = models.AutoField(primary_key=True)
