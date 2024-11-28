@@ -23,7 +23,7 @@ O objetivo principal é criar uma plataforma online onde os usuários possam ace
         LINK para o protótipo: 
 
 # Biblioteca Digital (tela inicial)
-![image](https://github.com/user-attachments/assets/ecda3f3c-a7a1-4758-983f-d01df29983bf)
+![image](https://github.com/user-attachments/assets/2063e5f1-cc99-4453-8f1b-68676aacafaf)
 
 
 # Painel do Jira
@@ -34,6 +34,7 @@ Sprint 2
 ![image](https://github.com/user-attachments/assets/daba1e31-efcc-4dbc-a7f2-6c88147d8782)
 
 Sprint 3
+
 ![image](https://github.com/user-attachments/assets/9b7153f2-1ed5-4720-b154-3f639d5b1a44)
 
 # Screencast
