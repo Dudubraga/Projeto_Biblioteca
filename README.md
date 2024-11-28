@@ -40,6 +40,11 @@ Sprint 3
 # Screencast
 [Screencast](https://www.canva.com/design/DAGXiVT84-k/16P0iO46PT0neBBhB4xnlw/edit?utm_content=DAGXiVT84-k&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
+# Pair Programming
+    -Henrique e Isabela
+    -Eduardo e Henrique
+    -Isabela e Julia V.
+
 # Integrantes
     - Eduardo Braga
     - Henrique Franca
